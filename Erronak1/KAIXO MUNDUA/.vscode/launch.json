@@ -9,14 +9,8 @@
             "request": "launch",
             "name": "Open index.html",
             "sourceMaps": false,
-            "file": "${workspaceFolder}/index.html"
+            "file": "${workspaceRoot}/index.html"
         }
-        {
-            "name": " Launch Firefox",
-            "type": "firefox",
-            "request": "launch",
-            "reAttach": true ,
-             "file": "${workspaceFolder}/index.html"
-        }
+       
     ]
 }
