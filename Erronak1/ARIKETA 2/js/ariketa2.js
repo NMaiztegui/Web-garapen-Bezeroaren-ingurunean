@@ -1,22 +1,29 @@
 function pasaitza_eskatzen (){
-   let mensaje = document.getElementById('mesua')
-   let parrafo= document.createElement('p')
-
+  
+   let ps_egokia =false
    let pasahitzaInput = document.getElementById('pasahitza')
    let pasahitza = pasahitzaInput.value;
 
   let konprobarInput = document.getElementById('konprobatu')
    let konprobatu= konprobarInput.value;
 
-   if (pasahitza== konprobatu){
+   do {
+      if (pasahitza== konprobatu){
+         ps_egokia =true
+         alert('Ongi etorri')
       
-      parrafo.innerHTML='Ongi ertorri'
-      mensaje.appendChild(parrafo);
+         document.getElementById("myform").reset();
 
-   }else {
-      parrafo.innerHTML='Pasahitza okerra, berriro sartu'
-      mensaje.appendChild(parrafo);
-      document.getElementById("myform").reset();
 
-   }
+      }else   {
+        
+      
+        
+         alert('Pasahitza okerra da, berriro sartu')
+         document.getElementById("myform").reset();
+
+      }
+   }  while (ps_egokia==false)
+      
 }
+  
