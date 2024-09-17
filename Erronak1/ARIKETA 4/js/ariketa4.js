@@ -1,11 +1,12 @@
+let liburuLista = [];  // Kanpoko eskopoko zerrenda, liburu guztiak gordetzeko
 function liburuak(titulua,autorea,irakurrita){
-  var liburua = {
+ return {
    lTitulua : titulua,
    lAutore : autorea,
    lIrakurrta: irakurrita
   }
   
-  return liburua
+ 
 }
 function libruak_eskatu(){
    let lib_sartu = prompt('Liburu berria satu nahi dizu? erantzun bai edo ez')
@@ -16,19 +17,17 @@ function libruak_eskatu(){
       let irakurri =(prompt('Librua irakurri duzu? Sartu bai edo ez'))
 
      let librua= liburuak (titulo,autor,irakurri)
-     liburen_lista(librua,x)
+     liburuLista.push(librua); // Liburua zerrendara gehitzen da
 
       lib_sartu = prompt('Liburu berria satu nahi dizu? erantzun bai edo ez')
       x++
    }while(lib_sartu=="bai")
-   
+   liburuak_listatu(liburuLista)
   
 }
-
-function liburen_lista(librua,x){
-   let lista = []
-   lista[x]=librua
-   return lista
+function liburuak_listatu(liburuLista){
+   
 }
+
 
 //libruuak sartzen joan, librur berribat sartunahi?bai ez, ez ba da irakurritako liburak konprobtau, bai jarraitiu eskatzen
