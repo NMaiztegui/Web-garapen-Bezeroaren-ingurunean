@@ -1,4 +1,4 @@
-let liburuak_list=[]
+/* let liburuak_list=[]
 function liburuak(titulua,autorea,irakurrita){
   return  {
    lTitulua : titulua,
@@ -39,4 +39,33 @@ function irakurritako_liburuak(){
 
 
 
-//libruuak sartzen joan, librur berribat sartunahi?bai ez, ez ba da irakurritako liburak konprobtau, bai jarraitiu eskatzen
+//libruuak sartzen joan, librur berribat sartunahi?bai ez, ez ba da irakurritako liburak konprobtau, bai jarraitiu eskatzen */
+var libruak =[
+   {
+      titulu: "El Hobbit",
+      egilea: "J.R.R. Tolkien",
+     irakurrita: true
+  },
+  {
+      titulu: "1984",
+      egilea: "George Orwell",
+      irakurrita: false
+  },
+  {
+      titulu: "Cien años de soledad",
+      egilea: "Gabriel García Márquez",
+      irakurrita: true
+  }
+
+]
+function irakurritakoak(){
+   libruak.forEach(liburu => {
+      console.log(liburu); 
+      if (liburu.irakurrita) {
+          alert(liburu.titulu)
+      }
+})
+}
+
+
+   

@@ -8,22 +8,20 @@ function pasaitza_eskatzen (){
    let konprobatu= konprobarInput.value;
 
    do {
-      if (pasahitza== konprobatu){
-         ps_egokia =true
-         alert('Ongi etorri')
-      
-         document.getElementById("myform").reset();
-
-
-      }else   {
-        
-      
-        
+      if (pasahitza!= konprobatu){
          alert('Pasahitza okerra da, berriro sartu')
+         
+      
          document.getElementById("myform").reset();
 
       }
-   }  while (ps_egokia==false)
+     
+   }  while (pasahitza!= konprobatu)
+   
+      alert('Ongi etorri')
+      document.getElementById("myform").reset()
+
+   
       
 }
   
