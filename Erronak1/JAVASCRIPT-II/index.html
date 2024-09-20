@@ -7,24 +7,102 @@
     <title>Formulario</title>
 </head>
 <body>
-    <div class="container px-5 py-5 ">
-        <div class="container px-3 py-3 border boder-dark border-2">
-            <h1>DAW klasea</h1>
-            <p>Formularioak eta javascript</p>
-        <div class="container"></div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
+    <div class="container mt-4 border">
+        <div class="row ">
+            <div class="col-12">
+                <h2>DAW klasea</h2>
+                <p><strong>Formularioak eta JavaScript</strong></p>
+            </div>
+               
         </div>
+      
+        <div class="row p-2  ">
+            <!--cuadrado de formulario-->
+            <div class="col-md-6 border p-3">
+                <form>
+                    <div class="d-flex gap-3">
+                        <label class="form-label">Zuzentzeko era </label>
+                        <input type="radio" value="jauna" name="sexua" id="jauna">
+                        <label for="jauna">Jauna</label>
+                        <input  type="radio" value="andrea" name="sexua" id="andrea">
+                        <label for="jauna">Andrea</label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="izena" class="form-label">Izena</label>
+                        <input type="text" name="izena" id="inpIzena">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="izena" class="form-label">Abizena</label>
+                        <input type="text" name="abizena" id="inpAbizena">
+                   </div>
+
+                   <div class="mb-3">
+                        <label for="izena" class="form-label">Helbidea</label>
+                        <input type="text" name="helbidea" id="inpAbizena">
+                    </div>
+
+                    <div class="mb-3 col-4">
+                        <label for="hiria" class="form-label">Hiria</label>
+                        <select class="form-select " id="hiria">
+                            <option selected>Aukeratu</option>
+                            <option value="eibar">Eibar</option>
+                            <option value="elgoibar">Elgoibar</option>
+                            <option value="zumaia">Zumaia</option>
+                        </select>
+                    </div>
+
+                    <div class="d-flex gap-3">
+                        <label class="form-label">Gustokoena </label>
+                        <input type="checkbox" value="libruak" name="gustoko" id="libruak">
+                        <label for="jauna">Liburuak</label>
+                        <input  type="checkbox" value="pelikulak" name="gustoko" id="pelikulak">
+                        <label for="jauna">Pelikulak</label>
+                    </div>
+
+
+                    <div>
+                        <button type="submit" class="btn btn-primary">Bidali</button>
+                        <button type="reset" class="btn btn-secondary">Ezeztatu</button>
+                    </div>
+                
+                </form>
+                  
+              
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex flex-column h-100">
+                    <div class="mb-3 flex-grow-1">
+                        <div class="border p-3 h-100">
+                            <img src="https://via.placeholder.com/100" alt="Avatar" class="img-fluid">
+                        </div>
+                    </div>
+
+                    <div class="flex-grow-1">
+                        <div class="border p-3 h-100">
+                            <div id="datuak"></div>
+                        </div>      
+                    </div>
+
+                </div>
+                        
+            </div>       
+        </div>
+                 <!-- Columna derecha con los datos -->
+                
+
+            
+           
     </div>
-    
+            
+        
+
+
+
     
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="./js/datuak.js"></script>
 </body>
 </html>
