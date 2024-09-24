@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/kamisetak.js"></script>
-    <link rel="stylesheet" src="style.css">
+    
+    <link rel="stylesheet" href="./style.css">
     <title>kamis</title>
 </head>
 <body>
@@ -14,15 +14,15 @@
             <p ><strong>Kamiseta <span id="kami_num"></span></strong></p>
         </div>
         <div id="kami_img">
-                
+            <img id="imagen" src="./img/6.jpg" alt="Imagen actual">
         </div>
         <div id="conten_botones">
-            <button class="botones" id="atzera">Atzera</button>
-            <button class="botones"id="aurrera">Aurrera</button>
+            <button onclick="cambiarImagen('atzera')" id="atzera">Atzera</button>
+            <button onclick="cambiarImagen('aurrera')"id="aurrera">Aurrera</button>
         </div>
         
 
     </div>
-    
+    <script src="./js/kamisetak.js"></script>
 </body>
 </html>

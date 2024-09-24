@@ -1,0 +1,35 @@
+html, body {
+    height: 100%; /* Asegura que el body y el html ocupen el 100% del viewport */
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start/* Centra verticalmente */
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos uno debajo del otro */
+    justify-content: flex-start; /* Centra el contenido internamente (verticalmente dentro del contenedor) */
+    align-items: center; /* Centra el contenido horizontalmente dentro del contenedor */
+    text-align: center; /* Alinea el texto dentro de los elementos */
+    height: 70%; /* Ajusta la altura automáticamente */
+    width: 100%;
+    padding: 20px;
+    
+}
+#conten_botones{
+    display: flex; /* Flexbox para alinear los botones */
+    width: 70%; /* El ancho del contenedor de los botones */
+    justify-content: space-between; /* Los botones se alinean a los extremos */
+    margin: 0 auto; /* Centra el contenedor de botones horizontalmente en la página */
+}
+button{
+    background-color: rgb(155, 9, 9); /* Fondo rojo */
+    color: white; /* Texto blanco */
+    border: none; /* Eliminar borde predeterminado */
+    border-radius: 10px;
+    width: 100px;
+    height: 20px;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
