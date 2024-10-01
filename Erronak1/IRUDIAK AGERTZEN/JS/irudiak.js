@@ -1,13 +1,14 @@
+let irudia=[
+    'saludo1.jpg',
+    'saludo2.jpg',
+    'saludo3.jpg',
+    'saludo4.jpg'
+]
+let kont=0
+let ezabatutakoIrudiak=[]
 window.onload=function(){
     document.getElementById('click').addEventListener('click',addimg,false)
-    irudia=[
-        'saludo1.jpg',
-        'saludo2.jpg',
-        'saludo3.jpg',
-        'saludo4.jpg'
-    ]
-    kont=0
-    ezabatutakoIrudiak=[]
+  
 }
 function addimg(){
     
@@ -16,9 +17,10 @@ function addimg(){
        }else{
         let irudi
         // comprobar si hay algo en la carpeta de imagenes borradas, significa se se  ha borrado algo
-            if (ezabatutakoIrudiak.lenght>0){
+            if (ezabatutakoIrudiak.length>0){
                 //si hay algo en la lista asignar a irudi el valor de la ultima imagen
                 irudi = ezabatutakoIrudiak.pop() // removes the last element from an aaray
+                kont--;
             }
             else{// si no hay nada en esa carpeta meter la primera imagen
                  irudi= document.createElement('img')
@@ -43,9 +45,9 @@ function ezabatuIrudia(event){
     
      // Añadir la imagen eliminada al array ezabatutakoIrudiak
      ezabatutakoIrudiak.push(irudi);
-     
+     console.log(ezabatutakoIrudiak)
      // Actualizar el contador de imágenes
-     kont--;
+    
 }
     
        
