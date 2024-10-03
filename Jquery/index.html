@@ -1,22 +1,25 @@
 <body>
     <p id="parrafoa">If you click on the "Hide" button, I will disappear.</p>
-    <img id="irudia" src="">
+    <img id="irudia" src="saludo1.jpg">
     <button id="hide">Hide</button>
     <button id="show">Show</button>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#hide").click(function () {
-                $("p").slideToggle();
-            });
+            // $("#hide").click(function () {
+            //     $("p").slideUp();
+            // });
+            $("#hide").click(() =>  $("p").slideUp() ) ;
             $("#show").click(function () {
-                $("#parrafoa").slideToggle();
-    });
+                $("#parrafoa").slideDown();
+             });
             $("#irudia").hover(function () {
                 $("#parrafoa").hide();
-    }, function () {
+                $("#irudia").attr("src","saludo2.jpg");
+             }, function () {
                 $("#parrafoa").show();
-    });
+                $("#irudia").attr("src","saludo1.jpg");
+            });
         });
     </script>
 </body>
