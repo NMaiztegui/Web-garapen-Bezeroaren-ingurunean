@@ -17,5 +17,11 @@ $(document).ready(function() {
 
         }
     });
+    let rotation = 0; // Variable para rastrear el ángulo de rotación
+
+    $('#rocket').on('click', function() {
+        rotation += 90; // Aumenta el ángulo de rotación en 90 grados
+        $(this).css('transform', 'rotate(' + rotation + 'deg)');
+    });
         
 });
