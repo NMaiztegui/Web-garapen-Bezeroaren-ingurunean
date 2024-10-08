@@ -3,6 +3,11 @@ $(document).ready(function() {
     $(document).on('keydown',function(e) {
         switch(e.key) {
             case "ArrowDown":
+                if (rotation==0){
+                    rotation+=90
+                    $('#rocket').css('transform', 'rotate(' + rotation + 'deg)')
+                }
+               
                 $('#rocket').animate({top:"+=10px"}, 'fast');
                 break;
             case "ArrowUp":
@@ -17,7 +22,7 @@ $(document).ready(function() {
                 
 
         }
-            //rotar ca vez que  haga cotrol
+          /*   //rotar ca vez que  haga cotrol
             if (e.ctrlKey){ 
                 rotation+=90;
                 $('#rocket').css('transform', 'rotate(' + rotation + 'deg)')
@@ -25,7 +30,7 @@ $(document).ready(function() {
             else if (e.shiftKey){
                 rotation-=90
                 $('#rocket').css('transform', 'rotate(' + rotation + 'deg)')
-            }
+            } */
        
     });
    
