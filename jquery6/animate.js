@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    let rotation=0;
     $(document).on('keydown',function(e) {
         switch(e.key) {
             case "ArrowDown":
@@ -16,12 +17,19 @@ $(document).ready(function() {
                 
 
         }
+            //rotar ca vez que  haga cotrol
+            if (e.ctrlKey){ 
+                rotation+=90;
+                $('#rocket').css('transform', 'rotate(' + rotation + 'deg)')
+            } //cambiar el estuilo para rotar
+            else if (e.shiftKey){
+                rotation-=90
+                $('#rocket').css('transform', 'rotate(' + rotation + 'deg)')
+            }
+       
     });
-    let rotation = 0; // Variable para rastrear el ángulo de rotación
+   
 
-    $('#rocket').on('click', function() {
-        rotation += 90; // Aumenta el ángulo de rotación en 90 grados
-        $(this).css('transform', 'rotate(' + rotation + 'deg)');
-    });
+    
         
 });
