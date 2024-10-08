@@ -5,13 +5,14 @@ class Estudiante{
     this.edad = edad;
     this.asignaturas = asignaturas;
     }
-}
     // Añadir un método para saludar
-    Estudiante.prototype.saludar = () =>  console.log(`Hola, me llamo ${nombre}  y tengo   ${edad}  años.`);
+   saludar = () =>  console.log(`Hola, me llamo ${this.nombre}  y tengo   ${this.edad}  años.`);
     
     // Añadir un método para listar las asignaturas
-    Estudiante.prototype.listarAsignaturas =() =>
-    console.log(`Mis asignaturas son: ${asignaturas.join(', ')}`);
+   listarAsignaturas =() =>
+    console.log(`Mis asignaturas son: ${this.asignaturas.join(', ')}`);
+    
+}
     
     // Crear un nuevo estudiante
     
