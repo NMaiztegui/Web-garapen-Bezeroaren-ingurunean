@@ -11,7 +11,7 @@ $(document).ready(function() {
                 $('#rocket').animate({left:"+=10px"}, 'fast');
                 break;
             case "ArrowLeft":
-                    $('#rocket').animate({left:"-=10px"}, 'fast');
+                    $('#rocket').animate({left:"-=10px",top:"-=10px" }, 'fast'); //moverse en diagonala la izquierda arriba
                     break;
                 
 
