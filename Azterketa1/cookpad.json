@@ -1,20 +1,25 @@
-[
-  {"herrialdea":"India",
-   "errezetak": [
-     {"izena": "rajgira-paratha.png"},
-     {"izena": "farali-jeera.png"}
-    ]
-  },
-  {"herrialdea":"Mejico",
-    "errezetak": [
-      {"izena": "chilaquiles.png"},
-      {"izena":  "bistec.png"}
-    ]
-  },
-  {"herrialdea":"Italia",
-    "errezetak": [
-      {"izena":  "espaguetis.png"},
-      {"izena": "rollos.png"}
-    ]
-  }
-]
+
+  [
+    {
+      "herrialdea": "India",
+      "errezetak": [
+        {"irudia": "rajgira-paratha.png", "izena": "Rajgira-Paratha"},
+        {"irudia": "farali-jeera.png", "izena": "Farali-Jeera"}
+      ]
+    },
+    {
+      "herrialdea": "Mejico",
+      "errezetak": [
+        {"irudia": "chilaquiles.png", "izena": "Chilaquiles"},
+        {"irudia": "bistec.png", "izena": "Bistec"}
+      ]
+    },
+    {
+      "herrialdea": "Italia",
+      "errezetak": [
+        {"irudia": "espaguetis.png", "izena": "Espaguetis"},
+        {"irudia": "rollos.png", "izena": "Rollos"}
+      ]
+    }
+  ]
+  
