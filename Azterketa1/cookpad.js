@@ -50,7 +50,7 @@ $(document).ready(function() {
                                 $('#errezetaIzena').append("<img class='irudia' src='./img/" + irudiak + "'>");
                             }
                         }
-                    }
+                    }   
                 }
             });
         }
