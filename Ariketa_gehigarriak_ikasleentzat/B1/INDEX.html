@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container pt-3" >
+        
+        <div class="container-fluid m-3" style="width: 90%;border: solid black 2px;">
+            <div class="d-flex justify-content-lg-start"><h1>Web aplikazioen garapena</h1></div>
+            <div class="d-flex justify-content-lg-start pt-3"><h3>Formularioa:</h3></div>
+            
+            <div class=" d-flex row  justify-content-around">
+                <div class="col-7 m-2" style="border: solid black 2px;" >
+                    <form method="post" id="formularioa">
+                        <div class="form-inline justify-content-around pt-2">
+                            <label  class="form-check-label">
+                                <input type="radio" name="sexua" value="gizona" class="form-check-input">
+                                Gizona
+                            </label>
+                            <label class="form-check-label">
+                                <input type="radio" name="sexua" value="emakumea"class="form-check-input">
+                                Emakumea
+                            </label>
+                        </div>
+                        <div class=" mb-4" style="width: 60%;">
+                            <label for="izena" >Izena:</label>
+                            <input type="text" id="izena" class="form-control">
+                        </div>   <div class=" mb-2" style="width: 60%;">
+                            <label for="abizena" >Abizena:</label>
+                            <input type="text" id="abizena" class="form-control">
+                        </div>
+                        <div class=" mb-4" style="width: 60%;">
+                            <label for="helbidea" >Helbidea:</label>
+                            <input type="email" id="helbidea" class="form-control">
+                        </div>
+                        <div class="d-flex  justify-content-center align-items-center mb-4">
+                            <div class="form-inline " style="width: 50%;">
+                                <label class="mr-2">Herria:</label>
+                                <select id="inputherria" class="form-control">
+                                    <option >Aukeratu</option>
+                                    <option value="Bilbao" >Bilbao</option>
+                                    <option value="Donosti" >Donosti</option>
+                                    <option  value="Gasteiz">Gasteiz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="d-flex row justify-content-around mb-4">
+                            <p>Ikasketak:</p>
+                            <label class="form-check-label">
+                                <input type="checkbox" value="daw" id="daw" class="form-check-input">
+                                DAW
+                            </label>
+                            <label class="form-check-label">
+                                <input type="checkbox" value="dam" id="dam" class="form-check-input">
+                                DAM
+                            </label>
+                            <label class="form-check-label">
+                                <input type="checkbox" value="smr" id="smr" class="form-check-input">
+                                SMR
+                            </label>
+                        </div>
+                        <div class="d-flex row justify-content-center ">
+                            <button type="submit" class="btn btn-primary mr-5" >Bidali</button>
+                        <!--<button type="submit" class="btn btn-primary">Bidali</button>-->
+                       
+                        <button  class="btn btn-primary mr-5"  id="reset" value="Reset">Reset</button>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="col-3 " style="border: solid black 2px;background-color: yellow;display: none;" id="alertas">
+
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    <script src="./jquery-3.5.1.min.js"></script>
+    <script src="./form.js"></script>
+</body>
+</html>
