@@ -1,0 +1,27 @@
+<p>nire-osagaia works!</p>
+<p>10+20={{20+10}}</p>
+<div>
+    <div>
+    Izena: {{langilea.izena}}
+    </div>
+    <div>
+    Abizena: {{langilea.abizena}}
+    </div>
+    <div>
+    Generoa: {{langilea.generoa}}
+    </div>
+    <div>
+       <img src="{{langilea.irudia}}">
+     </div>
+</div>
+<input [(ngModel)]="langilea.izena">
+<input [(ngModel)]="langilea.abizena">
+<h2>{{ getTitle() }} </h2>
+<ul>
+    <li *ngFor="let person of langileak">
+    Izena: {{person.izena}}
+    Abizena: {{person.abizena}}
+    Generoa: {{person.generoa}}
+    Soldata: {{person.soldata}}
+    </li>
+    </ul>
