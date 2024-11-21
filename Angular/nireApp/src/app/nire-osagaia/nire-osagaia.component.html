@@ -1,5 +1,5 @@
-<p>nire-osagaia works!</p>
-<p>10+20={{20+10}}</p>
+
+<P>10+20={{20+10}}</P>
 <div>
     <div>
     Izena: {{langilea.izena}}
@@ -13,7 +13,7 @@
     <div>
        <img src="{{langilea.irudia}}">
      </div>
-</div>
+
 <input [(ngModel)]="langilea.izena">
 <input [(ngModel)]="langilea.abizena">
 <h2>{{ getTitle() }} </h2>
@@ -23,5 +23,10 @@
     Abizena: {{person.abizena}}
     Generoa: {{person.generoa}}
     Soldata: {{person.soldata}}
+    likes: {{person.likes}}
+    <input type="button" value="Dar Like" (click)="gehituLikes(person)" />
+   
+   
+    
     </li>
-    </ul>
+</ul>
