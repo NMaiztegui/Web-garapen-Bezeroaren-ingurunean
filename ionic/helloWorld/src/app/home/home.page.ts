@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public name;
+
+  constructor(){
+
+    this.name = "Izaskun";
+
+  }
 
 }
