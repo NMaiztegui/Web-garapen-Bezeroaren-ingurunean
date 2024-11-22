@@ -17,16 +17,25 @@
 <input [(ngModel)]="langilea.izena">
 <input [(ngModel)]="langilea.abizena">
 <h2>{{ getTitle() }} </h2>
-<ul>
-    <li *ngFor="let person of langileak">
-    Izena: {{person.izena}}
-    Abizena: {{person.abizena}}
-    Generoa: {{person.generoa}}
-    Soldata: {{person.soldata}}
-    likes: {{person.likes}}
-    <input type="button" value="Dar Like" (click)="gehituLikes(person)" />
-   
-   
-    
-    </li>
-</ul>
+<input type="number" step="1" min="0" max="5" [(ngModel)]="rowLimit" />
+<table>
+    <tbody>
+    <tr *ngFor="let langilea of langileak  |  slice:rowStart:rowLimit"> <!--empieza desde el pirmero en la mlista hasta el limite que yo pongo-->
+    <td>Izena:{{langilea.izena| uppercase}}</td>
+    <td>Abizena: {{langilea.abizena | uppercase}} </td>
+    <td>Generoa: {{langilea.generoa}}</td>
+    <td>Soldata: {{langilea.soldata}}</td>
+    <td>Likes: {{langilea.likes}}</td>
+    <td><input type="button" value="Like" (click)="gehituLikes(langilea)" [disabled]="langilea.likes==10" /> </td>
+    <td> <span class="badge" [ngClass]="langilea.soldata >= 1999 ? 'bg-info' : (langilea.soldata == 1000 ? 'bg-danger' : 'bg-warning')">
+        {{langilea.soldata}} </span>
+        </td>
+        
+    </tr>
+    </tbody>
+    </table>
+    <button class="btn btn-info btn-sm" [disabled]="rowStart<=0" (click)="kenduRow()"><i class="fa-regular fa-circle-left"></i>
+    </button>&nbsp;
+    <button class="btn btn-info btn-sm" [disabled]="rowLimit>=langileak.length" (click)="gehituRow()"><i class="fa-regular fa-circle-right"></i>
+    </button>
+    <p [innerHTML]="myText"></p>

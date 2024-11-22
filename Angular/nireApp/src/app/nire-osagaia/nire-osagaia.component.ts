@@ -27,4 +27,16 @@ export class NireOsagaiaComponent {
     console.log('el boton ha sido presionado');
     langi.likes++;
   }
+  myText='Este es mi texto de prueba con variables'
+  rowStart = 0; //representa el primero de la lista que se va mostrar
+  rowLimit = 3; // y el ultimo de la lista que se va a mostrar en la pantala
+  kenduRow() {
+    this.rowStart -= 2;
+    this.rowLimit -= 2;
+  }
+  gehituRow() {
+    this.rowStart += 2;
+    this.rowLimit += 2;
+  }
+
 }
