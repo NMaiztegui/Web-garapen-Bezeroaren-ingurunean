@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { KlubaService} from '../services/kluba.service';
+import { Kluba } from '../classes/kluba';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
+  klubak: Kluba[] = [];
+  constructor(private klubaService: KlubaService) {}
 
-  constructor() {}
+  getKlubak(): void{
+    this.klubaService.getKlubak()
+      .subscribe(data => {this.klubak = data; },
+          error => console.log('Error::' + error)); 
+  }
+
+  
+
+  ngOnInit(): void {
+    this.getKlubak();
+  }
 
   kluba = {
     id: 783189,
