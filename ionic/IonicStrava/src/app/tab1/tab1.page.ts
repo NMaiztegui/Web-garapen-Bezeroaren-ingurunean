@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { KlubaService} from '../services/kluba.service';
 import { Kluba } from '../classes/kluba';
+import { ApiService} from '../services/api.service';
 
 @Component({
   selector: 'app-tab1',
@@ -9,12 +10,17 @@ import { Kluba } from '../classes/kluba';
 })
 export class Tab1Page implements OnInit{
   klubak: Kluba[] = [];
-  constructor(private klubaService: KlubaService) {}
-
+  showLoader=true; //barra de carga
+  constructor(private apiService: ApiService) {}
   getKlubak(): void{
-    this.klubaService.getKlubak()
-      .subscribe(data => {this.klubak = data; },
-          error => console.log('Error::' + error)); 
+    this.apiService.dbState().subscribe((res) => {
+      if(res){
+        this.apiService.fetchKlubak().subscribe(
+          data => {this.klubak = data;
+              this.showLoader=false;}// cuando tenga todos los datos que desaparezca la barra de carga
+        )
+      }
+    });
   }
 
   
