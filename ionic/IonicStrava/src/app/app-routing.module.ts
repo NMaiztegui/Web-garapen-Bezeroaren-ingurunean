@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'tab1-jarduerak',
     loadChildren: () => import('./tab1-jarduerak/tab1-jarduerak.module').then( m => m.Tab1JarduerakPageModule)
+  },
+  {
+    path: 'kluba-gehitu',
+    loadChildren: () => import('./kluba-gehitu/kluba-gehitu.module').then( m => m.KlubaGehituPageModule)
   }
 ];
 @NgModule({

@@ -115,5 +115,13 @@ export class ApiService {
     const kluba = this.klubakList.value.find(kluba => kluba.id === id);
     return of(kluba || {} as Kluba);
   }
+  
+  // Add - Lerro berria gehitu eta klub guztiak irakurri
+ addKluba(kluba: Kluba) {
+    let data = [kluba.name, kluba.cover_photo_small, kluba.sport_type, kluba.privatea, kluba.member_count, kluba.description, kluba.club_type];
+    alert(data);
+    const res =  this.storage.executeSql('INSERT INTO klubas (name, cover_photo_small, sport_type, private, member_count, description, club_type) VALUES (?, ?, ?, ?, ?, ?, ?)', data);
 
+    this.getKlubak();
+  }
 }
