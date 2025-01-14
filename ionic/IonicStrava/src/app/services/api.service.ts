@@ -6,7 +6,10 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs'; //para hacer las cosas de manera asinc
 import { SQLitePorter } from '@awesome-cordova-plugins/sqlite-porter/ngx'; // para trabajar con SQLite
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
-
+import { Transaction } from '../classes/transaction';
+import { NetworkService } from './network.service';
+import { SyncService } from './sync.service';
+import { TransactionService } from './transaction.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +21,17 @@ export class ApiService {
   JarduerakList = new BehaviorSubject<Jarduera[]>([]);
   private isDbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+   //url nagusia, orain ip-a jarriko da bestela mobilaren localhost-arekin nahasketa sortzen da
+   private url = 'http://192.168.56.1:8000/api/klubak';
+
   constructor(
     private platform: Platform, 
     private sqlite: SQLite, 
     private httpClient: HttpClient,
     private sqlPorter: SQLitePorter,
+    private networkService: NetworkService,
+    private syncService: SyncService,
+    private transactionService: TransactionService
   ) {
     this.platform.ready().then(() => { // cuando la app (movil) este eb marcha crea una base de datos, es capaz de ver si ya tiene una base de datos, si no la tiene crea, si la tiene get data
       this.sqlite.create({
@@ -48,6 +57,10 @@ export class ApiService {
     ).subscribe(data => {
       this.sqlPorter.importSqlToDb(this.storage, data)
         .then(_ => {
+          if (this.networkService.getStatus()){
+            //online gaude. Sinkronizatu
+            this.syncService.synchronize();
+          }
           this.getKlubak();
           this.isDbReady.next(true);
         })
@@ -123,5 +136,57 @@ export class ApiService {
     const res =  this.storage.executeSql('INSERT INTO klubas (name, cover_photo_small, sport_type, private, member_count, description, club_type) VALUES (?, ?, ?, ?, ?, ?, ?)', data);
 
     this.getKlubak();
+  }
+   // Update - Eguneratu eta transakzio taulara pasatu
+   async updateKluba(id: any, kluba: Kluba) {
+    let data = [kluba.name, kluba.cover_photo_small, kluba.sport_type, kluba.privatea, kluba.member_count, kluba.description, kluba.club_type];
+    const res = await this.storage.executeSql(`UPDATE Klubas SET name = ?, cover_photo_small = ?. sport_type = ?, private = ?, member_count = ?, description = ?, club_type = ?  WHERE id = ${id}`, data);
+    
+    let payload = {
+      name: kluba.name,
+      cover_photo_small: kluba.cover_photo_small,
+      sport_type: kluba.sport_type,
+      private: kluba.privatea,
+      member_count: kluba.member_count,
+      description: kluba.description,
+      club_type: kluba.club_type
+    };
+    const jsonString: string = JSON.stringify(payload);
+    let transaction: Transaction = {
+      endpoint: this.url + '/' + id,
+      method: "PUT",
+      payload: jsonString,
+      id: 0,
+      timestamp: ''
+    };
+    this.addTransaction(transaction);
+    if (this.networkService.getStatus()){
+      //online gaude. Sinkronizatu
+      this.syncService.synchronize();
+    }
+    this.getKlubak();
+  }
+  // Delete - Ezabatu eta transakzio taulara pasatu
+  async deleteKluba(id: any) {
+    const _ = await this.storage.executeSql('DELETE FROM Klubas WHERE id = ?', [id]);
+
+    let transaction: Transaction = {
+      endpoint: this.url + '/' + id,
+      method: "DELETE",
+      payload: '',
+      id: 0,
+      timestamp: ''
+    };
+    this.addTransaction(transaction);
+    if (this.networkService.getStatus()){
+      //online gaude. Sinkronizatu
+      this.syncService.synchronize();
+    }
+    this.getKlubak();
+  }
+
+  //transakzio taulan gordetzeko
+  async addTransaction(transaction: Transaction) {
+    this.transactionService.addTransaction(transaction);
   }
 }
